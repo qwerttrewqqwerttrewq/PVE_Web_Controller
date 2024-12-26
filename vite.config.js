@@ -44,15 +44,5 @@ export default defineConfig({
         enabled: false // Disable PWA in development
       }
     })
-  ],
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://pve.zrjzrj.xyz',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '/api2/json'),
-        secure: false
-      }
-    }
-  }
+  ]
 })
