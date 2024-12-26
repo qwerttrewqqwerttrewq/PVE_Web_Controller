@@ -1,6 +1,6 @@
 # Vue 3 + Vite
 
-A project to manage virtual machines with a modern Vue 3 + Vite setup.
+A project to list,start,stop virtual machines with a Vue 3 + Vite setup.
 
 ## Try It Out
 
@@ -66,7 +66,7 @@ export default {
 2. Navigate to **Workers** and create a new Worker.
 3. Copy and paste the script above into the Worker script editor.
 4. Replace `https://<your-pve-domain>` with the actual URL of your PVE API.
-5. Replace `https://your-frontend-domain.com` with your frontend domain (e.g., `https://pve-b0j.pages.dev`).
+5. Replace https://pve-b0j.pages.dev with your own frontend domain, or feel free to try it directly on my site. Rest assured, your privacy is secure—it’s purely a frontend page hosted and managed by Cloudflare.
 6. Save and deploy the Worker.
 
 ## Project Setup
@@ -97,7 +97,7 @@ npm run preview
 
 ## Backend Requirements
 
-- A Proxmox VE server with API access.
+- A Proxmox VE server with API access.You may use CloudFlare Tunnels to get remote access of PVE.
 - Cloudflare Worker for handling CORS and proxying requests to the PVE API.
 
 ## License
