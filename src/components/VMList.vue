@@ -11,7 +11,15 @@ const nodes = ref([]);
 const vms = ref([]);
 const loading = ref(true);
 const error = ref(null);
+const fetchNewData = async () => {
+  loading.value = true;
+  await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(fetchData());
+    }, 5000);
+  });
 
+};
 const fetchData = async () => {
   try {
     loading.value = true;
@@ -68,10 +76,17 @@ onMounted(fetchData);
       </div>
 
       <div v-else class="space-y-4">
+        <button
+          @click="fetchData"
+          class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+        >
+          Refresh
+        </button>
         <VMCard
           v-for="vm in vms"
           :key="vm.vmid"
           :vm="vm"
+          @click="fetchNewData"
         />
       </div>
     </main>
