@@ -5,7 +5,9 @@ import { getVMs } from '../api/vms';
 import VMCard from './VMCard.vue';
 import { useRouter } from 'vue-router';
 import { pveConfig } from '../stores/pveConfig';
-
+const startLoading = () => {
+  loading.value = true;
+};
 const router = useRouter();
 const nodes = ref([]);
 const vms = ref([]);
@@ -61,11 +63,11 @@ onMounted(fetchData);
     </header>
 
     <main>
-      <div v-if="loading" class="text-center py-8">
+      <div v-show="loading" class="text-center py-8">
         <p class="text-gray-600 dark:text-gray-400">Loading VMs...</p>
       </div>
 
-      <div v-else-if="error" class="text-center py-8">
+      <div v-show="error" class="text-center py-8">
         <p class="text-red-600">{{ error }}</p>
         <button
           @click="fetchData"
@@ -75,7 +77,7 @@ onMounted(fetchData);
         </button>
       </div>
 
-      <div v-else class="space-y-4">
+      <div v-show="!loading&&!error" class="space-y-4">
         <button
           @click="fetchData"
           class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
@@ -86,7 +88,8 @@ onMounted(fetchData);
           v-for="vm in vms"
           :key="vm.vmid"
           :vm="vm"
-          @click="fetchNewData"
+          @update="fetchNewData"
+          @loading="startLoading"
         />
       </div>
     </main>

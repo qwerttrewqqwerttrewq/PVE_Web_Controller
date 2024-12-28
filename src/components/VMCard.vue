@@ -8,10 +8,11 @@ const props = defineProps({
     required: true
   }
 });
-
+const emit = defineEmits();
 const loading = ref(false);
 
 const handleAction = async (action) => {
+  emit('loading');
   loading.value = true;
   try {
     if (action === 'start') {
@@ -23,6 +24,7 @@ const handleAction = async (action) => {
     console.error('Action failed:', error);
   } finally {
     loading.value = false;
+    emit('update')
   }
 };
 </script>
