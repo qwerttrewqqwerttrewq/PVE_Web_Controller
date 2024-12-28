@@ -4,7 +4,7 @@ A project to list,start,stop virtual machines with a Vue 3 + Vite setup.
 
 ## Try It Out
 
-You can try the frontend at: [https://pve-b0j.pages.dev](https://pve-b0j.pages.dev)
+You can try the frontend at: [https://vm.zrjzrj.xyz](https://vm.zrjzrj.xyz)
 
 **Note:** The project is not directly usable out of the box. You must configure a Cloudflare Worker to handle requests to the Proxmox VE (PVE) API and enable proper CORS handling.
 
@@ -15,7 +15,7 @@ To connect the frontend to the PVE API, deploy the following script as a Cloudfl
 ```javascript
 export default {
     async fetch(request) {
-        const allowedOrigins = ['https://pve-b0j.pages.dev']; // Replace with your frontend domain or try it on my page
+        const allowedOrigins = ['https://vm.zrjzrj.xyz']; // Replace with your frontend domain or try it on my page
         const origin = request.headers.get('Origin');
 
         // Validate request origin
