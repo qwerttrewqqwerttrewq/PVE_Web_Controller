@@ -30,7 +30,7 @@ export default {
         const url = new URL(request.url);
 
         // Replace <your-pve-domain> with your actual PVE API domain
-        const targetUrl = `https://<your-pve-domain>:8006${url.pathname}${url.search}`;
+        const targetUrl = `https://<your-pve-domain>${url.pathname}${url.search}`;
 
         const modifiedHeaders = new Headers();
         modifiedHeaders.set('Access-Control-Allow-Origin', origin || '*');
@@ -65,8 +65,8 @@ export default {
 1. Log in to your [Cloudflare dashboard](https://dash.cloudflare.com/).
 2. Navigate to **Workers** and create a new Worker.
 3. Copy and paste the script above into the Worker script editor.
-4. Replace `https://<your-pve-domain>` with the actual URL of your PVE API.
-5. Replace https://pve-b0j.pages.dev with your own frontend domain, or feel free to try it directly on my site. Rest assured, your privacy is secure—it’s purely a frontend page hosted and managed by Cloudflare.
+4. Replace `https://<your-pve-domain>` with the actual DOMAIN of your PVE API.
+5. Replace https://vm.zrjzrj.xyz with your own frontend domain, or feel free to try it directly on my site. Rest assured, your privacy is secure—it’s purely a frontend page hosted and managed by Cloudflare.
 6. Save and deploy the Worker.
 
 ## Project Setup
