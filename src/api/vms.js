@@ -4,7 +4,10 @@ export const getVMs = async (nodeId) => {
   try {
     const api = createApiClient();
     const response = await api.get(`/nodes/${nodeId}/qemu`);
-    return response.data.data;
+    const sortedVMs = response.data.data.sort((a, b) => {
+      return a.vmid - b.vmid;
+    });
+    return sortedVMs;
   } catch (error) {
     console.error('Error fetching VMs:', error);
     throw error;
